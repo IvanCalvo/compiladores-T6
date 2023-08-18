@@ -38,7 +38,7 @@ WS
 
 trecho
     :
-    'riff' IDENT '(' NOTA POSICAO NUM (',' NOTA POSICAO NUM)* ')'
+    'riff' IDENT '(' (NOTA POSICAO NUM | '-' ) (',' NOTA POSICAO NUM | '-' )* ')'
     ;
 
 loop
