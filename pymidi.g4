@@ -2,12 +2,7 @@ grammar pymidi;
 
 program
     :
-    trecho+ EOF
-    ;
-
-trecho
-    :
-    'riff' IDENT '(' NOTA POSICAO DURACAO (',' NOTA POSICAO DURACAO)* ')'
+    loop+ EOF
     ;
 
 NOTA
@@ -21,10 +16,11 @@ POSICAO
     ('1'..'7')
     ;
 
-DURACAO
+NUM
     :
     ('0'..'9')+
-    ;   
+    ; 
+
 
 //identificadores
 IDENT
@@ -38,4 +34,14 @@ WS
         | '\r'
         | '\n'
         ) -> skip
+    ;
+
+trecho
+    :
+    'riff' IDENT '(' NOTA POSICAO NUM (',' NOTA POSICAO NUM)* ')'
+    ;
+
+loop
+    :
+    'tocar' '(' trecho ',' NUM (';' trecho ',' NUM)* ')'
     ;

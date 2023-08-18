@@ -26,5 +26,14 @@ class pymidiListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by pymidiParser#loop.
+    def enterLoop(self, ctx:pymidiParser.LoopContext):
+        pass
+
+    # Exit a parse tree produced by pymidiParser#loop.
+    def exitLoop(self, ctx:pymidiParser.LoopContext):
+        pass
+
+
 
 del pymidiParser
