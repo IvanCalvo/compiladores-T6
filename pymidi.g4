@@ -7,7 +7,7 @@ program
 
 trecho
     :
-    'riff' '(' NOTA (',' NOTA)* ')'
+    'riff' IDENT '(' NOTA POSICAO DURACAO (',' NOTA POSICAO DURACAO)* ')'
     ;
 
 NOTA
@@ -19,6 +19,16 @@ NOTA
 POSICAO
     :
     ('1'..'7')
+    ;
+
+DURACAO
+    :
+    ('0'..'9')+
+    ;   
+
+//identificadores
+IDENT
+    :   [a-zA-Z][a-zA-Z0-9_]*
     ;
 
 // Ignorando White Space

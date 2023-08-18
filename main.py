@@ -20,10 +20,8 @@ class pymidiLexerErrorListener(ErrorListener):
     def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
         erro = str(e.input)[e.startIndex]
 
-        if erro == '"':
-            raise Exception(f'Linha {line}: cadeia literal nao fechada')
-        elif erro == '{':
-            raise Exception(f'Linha {line}: comentario nao fechado')       
+        if erro == '(':
+            raise Exception(f'Linha {line}: riff nao fechado')       
         else:
             raise Exception(f'Linha {line}: {erro} - simbolo nao identificado')
 
