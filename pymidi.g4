@@ -2,15 +2,22 @@ grammar pymidi;
 
 programa
     :
+    riff+ EOF
     ;
 
-
-NOTAS
+riff
     :
     ;
 
-OITAVAS
+NOTA
     :
+    'C' | 'C#' | 'D' | 'D#' | 'E' | 'F' | 'F#' | 'G' |
+    'G#' | 'A' | 'A#' | 'B'
+    ;
+
+POSICAO
+    :
+    ('1'..'7')
     ;
 
 // Ignorando White Space
