@@ -1,12 +1,13 @@
 grammar pymidi;
 
-programa
+program
     :
-    riff+ EOF
+    trecho+ EOF
     ;
 
-riff
+trecho
     :
+    'riff' '(' NOTA (',' NOTA)* ')'
     ;
 
 NOTA
