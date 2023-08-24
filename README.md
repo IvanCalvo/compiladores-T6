@@ -1,11 +1,19 @@
-## Trabalho final da disciplina de Compiladores
+# Trabalho final da disciplina de Compiladores
 
-## Autores
+# Autores
 
   Ivan Duarte Calvo - RA: 790739  
   João Ricardo Lopes Lovato - RA: 772138  
   Vinícius Borges de Lima - RA: 795316  
 
+# Descrição
+
+  O propósito da linguagem e compilador criados é de compilar uma linguagem textual contendo notas musicais e *loops*, construir as estruturas necessárias e por fim gerar um arquivo de áudio final.
+
+  Um exemplo da linguagem criada é o seguinte:
+
+
+# Instalação e execução do compilador
 ## Programas necessários
 
   O código foi escrito na linguagem *Python 3.10*, e também foi utilizado o *ANTLR 4.12.0*. Os arquivos e instruções para *downloads* e instalações podem ser encontrados nos seguintes endereços:  
