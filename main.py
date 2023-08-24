@@ -66,9 +66,29 @@ parser.addErrorListener(pymidiParserErrorListener())
 #lista vazia com os erros
 listaErros = []
 
+#lista de tipos definidos
+tipos_definidos = ['NOTA', 'NUM', 'POSICAO', 'IDENT']
+
 #chamada principal do programa
 try:
-    parser.programa()
+    parser.program()
+
+    while token.type != Token.EOF:
+
+        # Aplicando a formatacao padrao para as palavras chave
+        txt = '\'' + token.text + '\''
+        
+        # Identificando o tipo do token
+        typeStr = pymidiLexer.symbolicNames[token.type]
+        
+        
+        if (typeStr in tipos_definidos):
+            output_file.write('<'+ txt + "," + typeStr + '>\n')
+        else:
+            output_file.write('<' + txt + ',' + txt + '>\n')
+        
+
+        token = lexer.nextToken()
 
 except Exception as error:
     #caso haja erros, coloca os erros na lista

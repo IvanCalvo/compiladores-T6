@@ -11,7 +11,16 @@
   O propósito da linguagem e compilador criados é de compilar uma linguagem textual contendo notas musicais e *loops*, construir as estruturas necessárias e por fim gerar um arquivo de áudio final.
 
   Um exemplo da linguagem criada é o seguinte:
+      
+      riff r1 = (E4 1, A3 1, C4 1, E4 1, B3 1, E3 1, G3 1, B3 1, C4 1, F3 1, A3 1)
 
+      riff r2 = (C4 1, D4 1, G3 1, B3 1, D4 1, E4 1, A3 1, C4 1, E4 1, B3 1, E3 1)
+
+      riff r3 = (G3 1, B3 1, C4 1, F3 1, A3 1, C4 1, D4 1, G3 1, B3 1, D4 1)
+
+      tocar(r1, 1; r2, 1; r3, 1)
+  
+  Nesse exemplo pode-se observar a existência dos *riffs*, que são trechos contendo uma ou mais notas, onde cada nota possui também uma duração. Além dos *riffs* também existe a estrutura *tocar* que é um conjunto de *riffs* que podem ser repetidos também uma ou mais vezes cada.
 
 # Instalação e execução do compilador
 ## Programas necessários
