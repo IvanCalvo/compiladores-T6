@@ -1,4 +1,4 @@
-# Generated from pymidi.g4 by ANTLR 4.12.0
+# Generated from pymidi.g4 by ANTLR 4.7.2
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .pymidiParser import pymidiParser
@@ -71,5 +71,3 @@ class pymidiListener(ParseTreeListener):
         pass
 
 
-
-del pymidiParser

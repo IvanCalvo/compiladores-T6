@@ -1,40 +1,40 @@
-# Generated from pymidi.g4 by ANTLR 4.12.0
+# Generated from pymidi.g4 by ANTLR 4.7.2
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
+from typing.io import TextIO
 import sys
-if sys.version_info[1] > 5:
-	from typing import TextIO
-else:
-	from typing.io import TextIO
 
 def serializedATN():
-    return [
-        4,1,14,80,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
-        6,1,0,1,0,1,0,1,0,1,1,5,1,20,8,1,10,1,12,1,23,9,1,1,2,5,2,26,8,2,
-        10,2,12,2,29,9,2,1,3,1,3,1,3,1,3,1,3,1,4,1,4,1,4,1,4,1,4,3,4,41,
-        8,4,1,4,1,4,1,4,1,4,1,4,5,4,48,8,4,10,4,12,4,51,9,4,1,4,1,4,1,5,
-        1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,5,5,65,8,5,10,5,12,5,68,9,5,
-        1,5,1,5,1,6,1,6,1,6,5,6,75,8,6,10,6,12,6,78,9,6,1,6,0,0,7,0,2,4,
-        6,8,10,12,0,0,79,0,14,1,0,0,0,2,21,1,0,0,0,4,27,1,0,0,0,6,30,1,0,
-        0,0,8,35,1,0,0,0,10,54,1,0,0,0,12,71,1,0,0,0,14,15,3,2,1,0,15,16,
-        3,4,2,0,16,17,5,0,0,1,17,1,1,0,0,0,18,20,3,6,3,0,19,18,1,0,0,0,20,
-        23,1,0,0,0,21,19,1,0,0,0,21,22,1,0,0,0,22,3,1,0,0,0,23,21,1,0,0,
-        0,24,26,3,10,5,0,25,24,1,0,0,0,26,29,1,0,0,0,27,25,1,0,0,0,27,28,
-        1,0,0,0,28,5,1,0,0,0,29,27,1,0,0,0,30,31,5,1,0,0,31,32,3,12,6,0,
-        32,33,5,2,0,0,33,34,3,8,4,0,34,7,1,0,0,0,35,40,5,3,0,0,36,37,5,13,
-        0,0,37,38,5,10,0,0,38,41,5,11,0,0,39,41,5,4,0,0,40,36,1,0,0,0,40,
-        39,1,0,0,0,41,49,1,0,0,0,42,43,5,5,0,0,43,44,5,13,0,0,44,45,5,10,
-        0,0,45,48,5,11,0,0,46,48,5,4,0,0,47,42,1,0,0,0,47,46,1,0,0,0,48,
-        51,1,0,0,0,49,47,1,0,0,0,49,50,1,0,0,0,50,52,1,0,0,0,51,49,1,0,0,
-        0,52,53,5,6,0,0,53,9,1,0,0,0,54,55,5,7,0,0,55,56,5,3,0,0,56,57,3,
-        12,6,0,57,58,5,5,0,0,58,66,5,11,0,0,59,60,5,8,0,0,60,61,3,12,6,0,
-        61,62,5,5,0,0,62,63,5,11,0,0,63,65,1,0,0,0,64,59,1,0,0,0,65,68,1,
-        0,0,0,66,64,1,0,0,0,66,67,1,0,0,0,67,69,1,0,0,0,68,66,1,0,0,0,69,
-        70,5,6,0,0,70,11,1,0,0,0,71,76,5,12,0,0,72,73,5,9,0,0,73,75,5,12,
-        0,0,74,72,1,0,0,0,75,78,1,0,0,0,76,74,1,0,0,0,76,77,1,0,0,0,77,13,
-        1,0,0,0,78,76,1,0,0,0,7,21,27,40,47,49,66,76
-    ]
+    with StringIO() as buf:
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20")
+        buf.write("R\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
+        buf.write("\t\b\3\2\3\2\3\2\3\2\3\3\7\3\26\n\3\f\3\16\3\31\13\3\3")
+        buf.write("\4\7\4\34\n\4\f\4\16\4\37\13\4\3\5\3\5\3\5\3\5\3\5\3\6")
+        buf.write("\3\6\3\6\3\6\3\6\5\6+\n\6\3\6\3\6\3\6\3\6\3\6\7\6\62\n")
+        buf.write("\6\f\6\16\6\65\13\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3\7\3")
+        buf.write("\7\3\7\3\7\3\7\7\7C\n\7\f\7\16\7F\13\7\3\7\3\7\3\b\3\b")
+        buf.write("\3\b\7\bM\n\b\f\b\16\bP\13\b\3\b\2\2\t\2\4\6\b\n\f\16")
+        buf.write("\2\2\2Q\2\20\3\2\2\2\4\27\3\2\2\2\6\35\3\2\2\2\b \3\2")
+        buf.write("\2\2\n%\3\2\2\2\f8\3\2\2\2\16I\3\2\2\2\20\21\5\4\3\2\21")
+        buf.write("\22\5\6\4\2\22\23\7\2\2\3\23\3\3\2\2\2\24\26\5\b\5\2\25")
+        buf.write("\24\3\2\2\2\26\31\3\2\2\2\27\25\3\2\2\2\27\30\3\2\2\2")
+        buf.write("\30\5\3\2\2\2\31\27\3\2\2\2\32\34\5\f\7\2\33\32\3\2\2")
+        buf.write("\2\34\37\3\2\2\2\35\33\3\2\2\2\35\36\3\2\2\2\36\7\3\2")
+        buf.write("\2\2\37\35\3\2\2\2 !\7\3\2\2!\"\5\16\b\2\"#\7\4\2\2#$")
+        buf.write("\5\n\6\2$\t\3\2\2\2%*\7\5\2\2&\'\7\17\2\2\'(\7\f\2\2(")
+        buf.write("+\7\r\2\2)+\7\6\2\2*&\3\2\2\2*)\3\2\2\2+\63\3\2\2\2,-")
+        buf.write("\7\7\2\2-.\7\17\2\2./\7\f\2\2/\62\7\r\2\2\60\62\7\6\2")
+        buf.write("\2\61,\3\2\2\2\61\60\3\2\2\2\62\65\3\2\2\2\63\61\3\2\2")
+        buf.write("\2\63\64\3\2\2\2\64\66\3\2\2\2\65\63\3\2\2\2\66\67\7\b")
+        buf.write("\2\2\67\13\3\2\2\289\7\t\2\29:\7\5\2\2:;\5\16\b\2;<\7")
+        buf.write("\7\2\2<D\7\r\2\2=>\7\n\2\2>?\5\16\b\2?@\7\7\2\2@A\7\r")
+        buf.write("\2\2AC\3\2\2\2B=\3\2\2\2CF\3\2\2\2DB\3\2\2\2DE\3\2\2\2")
+        buf.write("EG\3\2\2\2FD\3\2\2\2GH\7\b\2\2H\r\3\2\2\2IN\7\16\2\2J")
+        buf.write("K\7\13\2\2KM\7\16\2\2LJ\3\2\2\2MP\3\2\2\2NL\3\2\2\2NO")
+        buf.write("\3\2\2\2O\17\3\2\2\2PN\3\2\2\2\t\27\35*\61\63DN")
+        return buf.getvalue()
+
 
 class pymidiParser ( Parser ):
 
@@ -83,15 +83,13 @@ class pymidiParser ( Parser ):
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
-        self.checkVersion("4.12.0")
+        self.checkVersion("4.7.2")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
 
 
 
-
     class ProgramContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -148,9 +146,7 @@ class pymidiParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class DeclaracoesContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -193,7 +189,7 @@ class pymidiParser ( Parser ):
             self.state = 21
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==1:
+            while _la==pymidiParser.T__0:
                 self.state = 18
                 self.declaracao_trecho()
                 self.state = 23
@@ -208,9 +204,7 @@ class pymidiParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class LoopsContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -253,7 +247,7 @@ class pymidiParser ( Parser ):
             self.state = 27
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==7:
+            while _la==pymidiParser.T__6:
                 self.state = 24
                 self.loop()
                 self.state = 29
@@ -268,9 +262,7 @@ class pymidiParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Declaracao_trechoContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -326,9 +318,7 @@ class pymidiParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Valor_trechoContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -384,7 +374,7 @@ class pymidiParser ( Parser ):
             self.state = 40
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [13]:
+            if token in [pymidiParser.NOTA]:
                 self.state = 36
                 self.match(pymidiParser.NOTA)
                 self.state = 37
@@ -392,7 +382,7 @@ class pymidiParser ( Parser ):
                 self.state = 38
                 self.match(pymidiParser.NUM)
                 pass
-            elif token in [4]:
+            elif token in [pymidiParser.T__3]:
                 self.state = 39
                 self.match(pymidiParser.T__3)
                 pass
@@ -402,11 +392,11 @@ class pymidiParser ( Parser ):
             self.state = 49
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==4 or _la==5:
+            while _la==pymidiParser.T__3 or _la==pymidiParser.T__4:
                 self.state = 47
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
-                if token in [5]:
+                if token in [pymidiParser.T__4]:
                     self.state = 42
                     self.match(pymidiParser.T__4)
                     self.state = 43
@@ -416,7 +406,7 @@ class pymidiParser ( Parser ):
                     self.state = 45
                     self.match(pymidiParser.NUM)
                     pass
-                elif token in [4]:
+                elif token in [pymidiParser.T__3]:
                     self.state = 46
                     self.match(pymidiParser.T__3)
                     pass
@@ -437,9 +427,7 @@ class pymidiParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class LoopContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -498,7 +486,7 @@ class pymidiParser ( Parser ):
             self.state = 66
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==8:
+            while _la==pymidiParser.T__7:
                 self.state = 59
                 self.match(pymidiParser.T__7)
                 self.state = 60
@@ -521,9 +509,7 @@ class pymidiParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class NomeContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -567,7 +553,7 @@ class pymidiParser ( Parser ):
             self.state = 76
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==9:
+            while _la==pymidiParser.T__8:
                 self.state = 72
                 self.match(pymidiParser.T__8)
                 self.state = 73
