@@ -1,4 +1,4 @@
-# Generated from pymidi.g4 by ANTLR 4.7.2
+# Generated from pymidi.g4 by ANTLR 4.12.0
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .pymidiParser import pymidiParser
@@ -34,13 +34,13 @@ class pymidiVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by pymidiParser#loop.
-    def visitLoop(self, ctx:pymidiParser.LoopContext):
+    # Visit a parse tree produced by pymidiParser#toque.
+    def visitToque(self, ctx:pymidiParser.ToqueContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by pymidiParser#nome.
-    def visitNome(self, ctx:pymidiParser.NomeContext):
+    # Visit a parse tree produced by pymidiParser#loop.
+    def visitLoop(self, ctx:pymidiParser.LoopContext):
         return self.visitChildren(ctx)
 
 

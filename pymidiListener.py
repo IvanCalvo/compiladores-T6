@@ -1,4 +1,4 @@
-# Generated from pymidi.g4 by ANTLR 4.7.2
+# Generated from pymidi.g4 by ANTLR 4.12.0
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .pymidiParser import pymidiParser
@@ -53,6 +53,15 @@ class pymidiListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by pymidiParser#toque.
+    def enterToque(self, ctx:pymidiParser.ToqueContext):
+        pass
+
+    # Exit a parse tree produced by pymidiParser#toque.
+    def exitToque(self, ctx:pymidiParser.ToqueContext):
+        pass
+
+
     # Enter a parse tree produced by pymidiParser#loop.
     def enterLoop(self, ctx:pymidiParser.LoopContext):
         pass
@@ -62,12 +71,5 @@ class pymidiListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by pymidiParser#nome.
-    def enterNome(self, ctx:pymidiParser.NomeContext):
-        pass
 
-    # Exit a parse tree produced by pymidiParser#nome.
-    def exitNome(self, ctx:pymidiParser.NomeContext):
-        pass
-
-
+del pymidiParser

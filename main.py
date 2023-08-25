@@ -11,9 +11,12 @@
 
 import sys
 from antlr4 import *
+from antlr4.error.ErrorListener import *
+from antlr4.tree.Trees import Trees
 from pymidiLexer import pymidiLexer
 from pymidiParser import pymidiParser
 from pymidiVisitor import pymidiVisitor
+from pymidiListener import pymidiListener
 from antlr4.error.ErrorListener import ErrorListener
 
 #classe de mensangens customizadas de erros léxicos
@@ -71,10 +74,6 @@ listaErros = []
 tipos_definidos = ['NOTA', 'NUM', 'POSICAO', 'IDENT']
 
 #chamada principal do programa
-
-#parser.program()
-
-token = lexer.nextToken()
 lexer = pymidiLexer(input_stream)
 tokens = CommonTokenStream(lexer)
 parser = pymidiParser(tokens)
@@ -85,3 +84,5 @@ tree = parser.program()
 # Criação de um visitor e visita da árvore de análise
 visitor = pymidiVisitor()
 visitor.visit(tree)
+
+output_file.close()

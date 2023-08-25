@@ -17,40 +17,34 @@ loops
 
 declaracao_trecho
     :
-    'riff' nome '=' valor_trecho
+    'riff' IDENT '=' valor_trecho
     ;
 
 valor_trecho
     :
-    '(' (NOTA POSICAO NUM | '-' ) (',' NOTA POSICAO NUM | '-' )* ')'
+    '(' toque (',' toque)* ')'
+    ;
+
+toque
+    : NOTA posicao=NUM duracao=NUM | '-'
     ;
 
 loop
     :
-    'tocar' '(' nome ',' NUM (';' nome ',' NUM)* ')'
+    'tocar' '(' IDENT ',' NUM (';' IDENT ',' NUM)* ')'
     ;
 
 
 //lexer
-POSICAO
-    :
-    NUM
-    ;
-
 NUM
     :
     ('0'..'9')+('.'('0'..'9')+)?
     ; 
 
-nome
-    :
-    IDENT ('_' IDENT)*
-    ;
-
 //identificadores
 IDENT
     :   
-    [a-zA-Z][a-zA-Z0-9_]*
+    [a-z][a-z0-9_]*
     ;
 
 NOTA
