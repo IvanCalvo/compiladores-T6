@@ -2,7 +2,55 @@ grammar pymidi;
 
 program
     :
-    loop+ EOF
+    declaracoes loops EOF
+    ;
+
+declaracoes
+    :
+    declaracao_trecho*
+    ;
+
+loops
+    :
+    loop*
+    ;
+
+declaracao_trecho
+    :
+    'riff' nome '=' valor_trecho
+    ;
+
+valor_trecho
+    :
+    '(' (NOTA POSICAO NUM | '-' ) (',' NOTA POSICAO NUM | '-' )* ')'
+    ;
+
+loop
+    :
+    'tocar' '(' nome ',' NUM (';' nome ',' NUM)* ')'
+    ;
+
+
+//lexer
+POSICAO
+    :
+    NUM
+    ;
+
+NUM
+    :
+    ('0'..'9')+
+    ; 
+
+nome
+    :
+    IDENT ('_' IDENT)*
+    ;
+
+//identificadores
+IDENT
+    :   
+    [a-zA-Z][a-zA-Z0-9_]*
     ;
 
 NOTA
@@ -11,37 +59,12 @@ NOTA
     'G#' | 'A' | 'A#' | 'B'
     ;
 
-POSICAO
-    :
-    ('1'..'7')
-    ;
-
-NUM
-    :
-    ('0'..'9')+
-    ; 
-
-
-//identificadores
-IDENT
-    :   [a-zA-Z][a-zA-Z0-9_]*
-    ;
-
 // Ignorando White Space
 WS  
-    :   ( ' '
+    :   
+        ( ' '
         | '\t'
         | '\r'
         | '\n'
         ) -> skip
-    ;
-
-trecho
-    :
-    'riff' IDENT '(' (NOTA POSICAO NUM | '-' ) (',' NOTA POSICAO NUM | '-' )* ')'
-    ;
-
-loop
-    :
-    'tocar' '(' trecho ',' NUM (';' trecho ',' NUM)* ')'
     ;

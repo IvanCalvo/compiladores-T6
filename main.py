@@ -70,33 +70,28 @@ listaErros = []
 tipos_definidos = ['NOTA', 'NUM', 'POSICAO', 'IDENT']
 
 #chamada principal do programa
-try:
-    parser.program()
 
-    while token.type != Token.EOF:
+#parser.program()
 
-        # Aplicando a formatacao padrao para as palavras chave
-        txt = '\'' + token.text + '\''
-        
-        # Identificando o tipo do token
-        typeStr = pymidiLexer.symbolicNames[token.type]
-        
-        
-        if (typeStr in tipos_definidos):
-            output_file.write('<'+ txt + "," + typeStr + '>\n')
-        else:
-            output_file.write('<' + txt + ',' + txt + '>\n')
-        
+token = lexer.nextToken()
 
-        token = lexer.nextToken()
+while token.type != Token.EOF:
 
-except Exception as error:
-    #caso haja erros, coloca os erros na lista
-    listaErros.append(str(error))
-    listaErros.append("Fim da compilacao")
+    # Aplicando a formatacao padrao para as palavras chave
+    txt = '\'' + token.text + '\''
+    
 
-    #imprime a lista de erros no arquivo de saida
-    for item_erro in listaErros:
-        output_file.write(f"{item_erro}\n")
+    # Identificando o tipo do token
+    typeStr = pymidiLexer.symbolicNames[token.type]
+    
+    
+    if (typeStr in tipos_definidos):
+        output_file.write('<'+ txt + "," + typeStr + '>\n')
+    else:
+        output_file.write('<' + txt + ',' + txt + '>\n')
+    
+
+    token = lexer.nextToken()
+
 
 output_file.close()

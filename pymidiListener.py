@@ -17,12 +17,39 @@ class pymidiListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by pymidiParser#trecho.
-    def enterTrecho(self, ctx:pymidiParser.TrechoContext):
+    # Enter a parse tree produced by pymidiParser#declaracoes.
+    def enterDeclaracoes(self, ctx:pymidiParser.DeclaracoesContext):
         pass
 
-    # Exit a parse tree produced by pymidiParser#trecho.
-    def exitTrecho(self, ctx:pymidiParser.TrechoContext):
+    # Exit a parse tree produced by pymidiParser#declaracoes.
+    def exitDeclaracoes(self, ctx:pymidiParser.DeclaracoesContext):
+        pass
+
+
+    # Enter a parse tree produced by pymidiParser#loops.
+    def enterLoops(self, ctx:pymidiParser.LoopsContext):
+        pass
+
+    # Exit a parse tree produced by pymidiParser#loops.
+    def exitLoops(self, ctx:pymidiParser.LoopsContext):
+        pass
+
+
+    # Enter a parse tree produced by pymidiParser#declaracao_trecho.
+    def enterDeclaracao_trecho(self, ctx:pymidiParser.Declaracao_trechoContext):
+        pass
+
+    # Exit a parse tree produced by pymidiParser#declaracao_trecho.
+    def exitDeclaracao_trecho(self, ctx:pymidiParser.Declaracao_trechoContext):
+        pass
+
+
+    # Enter a parse tree produced by pymidiParser#valor_trecho.
+    def enterValor_trecho(self, ctx:pymidiParser.Valor_trechoContext):
+        pass
+
+    # Exit a parse tree produced by pymidiParser#valor_trecho.
+    def exitValor_trecho(self, ctx:pymidiParser.Valor_trechoContext):
         pass
 
 
@@ -32,6 +59,15 @@ class pymidiListener(ParseTreeListener):
 
     # Exit a parse tree produced by pymidiParser#loop.
     def exitLoop(self, ctx:pymidiParser.LoopContext):
+        pass
+
+
+    # Enter a parse tree produced by pymidiParser#nome.
+    def enterNome(self, ctx:pymidiParser.NomeContext):
+        pass
+
+    # Exit a parse tree produced by pymidiParser#nome.
+    def exitNome(self, ctx:pymidiParser.NomeContext):
         pass
 
 
