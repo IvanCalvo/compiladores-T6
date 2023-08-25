@@ -13,6 +13,7 @@ import sys
 from antlr4 import *
 from pymidiLexer import pymidiLexer
 from pymidiParser import pymidiParser
+from pymidiVisitor import pymidiVisitor
 from antlr4.error.ErrorListener import ErrorListener
 
 #classe de mensangens customizadas de erros léxicos
@@ -74,24 +75,13 @@ tipos_definidos = ['NOTA', 'NUM', 'POSICAO', 'IDENT']
 #parser.program()
 
 token = lexer.nextToken()
+lexer = pymidiLexer(input_stream)
+tokens = CommonTokenStream(lexer)
+parser = pymidiParser(tokens)
 
-while token.type != Token.EOF:
+# Geração da árvore de análise
+tree = parser.program()
 
-    # Aplicando a formatacao padrao para as palavras chave
-    txt = '\'' + token.text + '\''
-    
-
-    # Identificando o tipo do token
-    typeStr = pymidiLexer.symbolicNames[token.type]
-    
-    
-    if (typeStr in tipos_definidos):
-        output_file.write('<'+ txt + "," + typeStr + '>\n')
-    else:
-        output_file.write('<' + txt + ',' + txt + '>\n')
-    
-
-    token = lexer.nextToken()
-
-
-output_file.close()
+# Criação de um visitor e visita da árvore de análise
+visitor = pymidiVisitor()
+visitor.visit(tree)
