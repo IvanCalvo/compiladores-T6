@@ -17,6 +17,7 @@ from pymidiLexer import pymidiLexer
 from pymidiParser import pymidiParser
 from pymidiVisitor import pymidiVisitor
 from pymidiListener import pymidiListener
+from pymidiSemantico import pymidiSemantico
 from antlr4.error.ErrorListener import ErrorListener
 
 #classe de mensangens customizadas de erros léxicos
@@ -83,6 +84,9 @@ tree = parser.program()
 
 # Criação de um visitor e visita da árvore de análise
 visitor = pymidiVisitor()
-visitor.visit(tree)
+#visitor.visit(tree)
+
+semantico = pymidiSemantico()
+semantico.visit(tree)
 
 output_file.close()
