@@ -18,6 +18,7 @@ from pymidiParser import pymidiParser
 from pymidiVisitor import pymidiVisitor
 from pymidiListener import pymidiListener
 from pymidiSemantico import pymidiSemantico
+from pymidiUtils import *
 from Gerador import *
 from antlr4.error.ErrorListener import ErrorListener
 
@@ -27,9 +28,9 @@ class pymidiLexerErrorListener(ErrorListener):
         erro = str(e.input)[e.startIndex]
 
         if erro == '(':
-            raise Exception(f'Linha {line}: riff nao fechado')       
+            utils.adicionarErro(f'Linha {line}: riff nao fechado')       
         else:
-            raise Exception(f'Linha {line}: {erro} - simbolo nao identificado')
+            utils.adicionarErro(f'Linha {line}: {erro} - simbolo nao identificado')
 
 #classe de mensangens customizadas de erros léxicos
 class pymidiParserErrorListener(ErrorListener):
@@ -39,7 +40,7 @@ class pymidiParserErrorListener(ErrorListener):
         if errorText == '<EOF>':
             errorText = 'EOF'
         
-        raise Exception(f'Linha {offendingSymbol.line}: erro sintatico proximo a {errorText}')
+        utils.adicionarErro(f'Linha {offendingSymbol.line}: erro sintatico proximo a {errorText}')
 
 # Verificando se todos os argumentos necessarios foram passados
 if len(sys.argv) < 3:
@@ -55,9 +56,6 @@ g1.nome = output_file_name
 # Criando um InputStream atraves do arquivo de entrada
 input_stream = FileStream(input_file_name, encoding='utf-8')
 
-#Criando um arquivo de saida
-output_file = open(f"{output_file_name}.txt","w")
-
 # Utilizando o lexer criado com o ANTLR
 lexer = pymidiLexer(input_stream)
 stream = CommonTokenStream(lexer)
@@ -70,9 +68,6 @@ parser.removeErrorListeners()
 #adicionando mensagens de erro customizadas
 lexer.addErrorListener(pymidiLexerErrorListener())
 parser.addErrorListener(pymidiParserErrorListener())
-
-#lista vazia com os erros
-listaErros = []
 
 #lista de tipos definidos
 tipos_definidos = ['NOTA', 'NUM', 'POSICAO', 'IDENT']
@@ -92,6 +87,11 @@ visitor = pymidiVisitor()
 semantico = pymidiSemantico()
 semantico.visit(tree)
 
-g1.Debug()
-
-output_file.close()
+if len(utils.erros) == 0:
+    g1.Gerar()
+else:
+    #Criando um arquivo de saida
+    output_file = open(f"{output_file_name}.txt","w")
+    for erro in utils.erros:
+        output_file.write(erro + '\n')
+    output_file.close()

@@ -2,6 +2,7 @@
 from antlr4 import *
 from pymidiVisitor import pymidiVisitor
 from Gerador import *
+from pymidiUtils import *
 if __name__ is not None and "." in __name__:
     from .pymidiParser import pymidiParser
 else:
@@ -9,6 +10,8 @@ else:
 
 # This class defines a complete generic visitor for a parse tree produced by pymidiParser.
 class pymidiSemantico(pymidiVisitor):
+    def __init__(self):
+        self.listaRiffs = []
 
     # Visit a parse tree produced by pymidiParser#program.
     def visitProgram(self, ctx:pymidiParser.ProgramContext):
@@ -18,11 +21,16 @@ class pymidiSemantico(pymidiVisitor):
     # Visit a parse tree produced by pymidiParser#declaracoes.
     def visitDeclaracoes(self, ctx:pymidiParser.DeclaracoesContext):
         if ctx.declaracao_trecho is not None:
-            
             for i, c in enumerate(ctx.declaracao_trecho()):
                 declaracao = self.visitDeclaracao_trecho(c)
                 nome_riff = declaracao.split('=')[0][4:]
-                g1.addRiff(nome_riff)
+                
+                if nome_riff not in self.listaRiffs:
+                    self.listaRiffs.append(nome_riff)
+                    g1.addRiff(nome_riff)
+                else:
+                    utils.adicionarErro(f"O riff {nome_riff} já existe!")
+
                 notas = (declaracao.split('=')[1][1:-1]).split(',')
                 for nota in notas:
                     duracao = int(nota[-1])
@@ -39,11 +47,13 @@ class pymidiSemantico(pymidiVisitor):
                 for riff in riffs:
                     nome_riff = riff.split(',')[0]
                     quantidade = int(riff.split(',')[1])
-                    for x in range(quantidade):
-                        g1.Tocar(nome_riff)
-        
-        g1.Gerar()
-        
+                    
+                    if nome_riff in self.listaRiffs:
+                        for x in range(quantidade):
+                            g1.Tocar(nome_riff)
+                    else:
+                        utils.adicionarErro(f"O riff {nome_riff} não foi declarado!")
+                    
     # Visit a parse tree produced by pymidiParser#declaracao_trecho.
     def visitDeclaracao_trecho(self, ctx:pymidiParser.Declaracao_trechoContext):
         return ctx.getText()
