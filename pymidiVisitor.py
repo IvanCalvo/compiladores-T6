@@ -36,11 +36,14 @@ class pymidiVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by pymidiParser#toque.
     def visitToque(self, ctx:pymidiParser.ToqueContext):
+        print(ctx.getText())
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by pymidiParser#loop.
     def visitLoop(self, ctx:pymidiParser.LoopContext):
         return self.visitChildren(ctx)
+
+
 
 del pymidiParser

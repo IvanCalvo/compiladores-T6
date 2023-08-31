@@ -38,7 +38,7 @@ loop
 //lexer
 NUM
     :
-    (('0'..'9')+('.'('0'..'9')+)?) | '#'
+    ('0'..'9')+('.'('0'..'9')+)?
     ; 
 
 //identificadores
@@ -49,7 +49,8 @@ IDENT
 
 NOTA
     :
-    'C' | 'D' | 'E' | 'F' | 'G' | 'A' | 'B'
+    'C' | 'C#' | 'D' | 'D#' | 'E' | 'F' | 'F#' | 'G' |
+    'G#' | 'A' | 'A#' | 'B'
     ;
 
 // Ignorando White Space
