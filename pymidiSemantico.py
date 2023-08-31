@@ -1,16 +1,13 @@
 # Generated from pymidi.g4 by ANTLR 4.12.0
 from antlr4 import *
 from pymidiVisitor import pymidiVisitor
-from Gerador import Gerador
+from Gerador import *
 if __name__ is not None and "." in __name__:
     from .pymidiParser import pymidiParser
 else:
     from pymidiParser import pymidiParser
 
 # This class defines a complete generic visitor for a parse tree produced by pymidiParser.
-
-g1 = Gerador()
-
 class pymidiSemantico(pymidiVisitor):
 
     # Visit a parse tree produced by pymidiParser#program.
@@ -31,9 +28,8 @@ class pymidiSemantico(pymidiVisitor):
                     duracao = int(nota[-1])
                     g1.addNota(nome_riff, nota[:-1])
                     g1.addDuracao(nome_riff, duracao)
-                
-        g1.Debug()
-
+    
+        
     # Visit a parse tree produced by pymidiParser#loops.
     def visitLoops(self, ctx:pymidiParser.LoopsContext):
         if ctx.loop is not None:
@@ -47,7 +43,7 @@ class pymidiSemantico(pymidiVisitor):
                         g1.Tocar(nome_riff)
         
         g1.Gerar()
-
+        
     # Visit a parse tree produced by pymidiParser#declaracao_trecho.
     def visitDeclaracao_trecho(self, ctx:pymidiParser.Declaracao_trechoContext):
         return ctx.getText()

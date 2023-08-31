@@ -18,6 +18,7 @@ from pymidiParser import pymidiParser
 from pymidiVisitor import pymidiVisitor
 from pymidiListener import pymidiListener
 from pymidiSemantico import pymidiSemantico
+from Gerador import *
 from antlr4.error.ErrorListener import ErrorListener
 
 #classe de mensangens customizadas de erros léxicos
@@ -49,11 +50,13 @@ if len(sys.argv) < 3:
 input_file_name = sys.argv[1]
 output_file_name = sys.argv[2]
 
+g1.nome = output_file_name
+
 # Criando um InputStream atraves do arquivo de entrada
 input_stream = FileStream(input_file_name, encoding='utf-8')
 
 #Criando um arquivo de saida
-output_file = open(output_file_name,"w")
+output_file = open(f"{output_file_name}.txt","w")
 
 # Utilizando o lexer criado com o ANTLR
 lexer = pymidiLexer(input_stream)
@@ -88,5 +91,7 @@ visitor = pymidiVisitor()
 
 semantico = pymidiSemantico()
 semantico.visit(tree)
+
+g1.Debug()
 
 output_file.close()
