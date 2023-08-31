@@ -52,13 +52,13 @@ class Gerador:
     def Tocar(self,riff):
         
         for i in range(len(self.riffs[riff]['nota'])):
-            print(note_to_midi(self.riffs[riff]['nota'][i]))
-            print(self.riffs[riff]['duracao'][i])
-
-            self.MyMIDI.addNote(self.track, self.channel, note_to_midi(self.riffs[riff]['nota'][i]), self.time, self.riffs[riff]['duracao'][i], self.volume)
-            self.time+= self.riffs[riff]['duracao'][i]
+            if(self.riffs[riff]['nota'][i]) == '-':
+                self.time += self.riffs[riff]['duracao'][i]
+            else:
+                self.MyMIDI.addNote(self.track, self.channel, note_to_midi(self.riffs[riff]['nota'][i]), self.time, self.riffs[riff]['duracao'][i], self.volume)
+                self.time+= self.riffs[riff]['duracao'][i]
     def Gerar(self):
-        with open("nuggets.mid", "wb") as output_file:
+        with open("naggets.mid", "wb") as output_file:
             self.MyMIDI.writeFile(output_file)
 
             
@@ -72,6 +72,10 @@ g1.addDuracao('r1',0.5)
 g1.addRiff('r2')
 g1.addNota('r2','A1')
 g1.addDuracao('r2',1.5)
+g1.addNota('r1','-')
+g1.addDuracao('r1',2.5)
 g1.Tocar('r1')
 g1.Tocar('r2')
+g1.Tocar('r1')
 g1.Gerar()
+g1.Debug()
