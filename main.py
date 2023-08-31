@@ -22,25 +22,16 @@ from pymidiUtils import *
 from Gerador import *
 from antlr4.error.ErrorListener import ErrorListener
 
-#classe de mensangens customizadas de erros léxicos
-class pymidiLexerErrorListener(ErrorListener):
+#classe de mensangens customizadas de erros
+class pymidiErrorListener(ErrorListener):
     def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
-        erro = str(e.input)[e.startIndex]
-
-        if erro == '(':
-            utils.adicionarErro(f'Linha {line}: riff nao fechado')       
-        else:
-            utils.adicionarErro(f'Linha {line}: {erro} - simbolo nao identificado')
-
-#classe de mensangens customizadas de erros léxicos
-class pymidiParserErrorListener(ErrorListener):
-     def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
         errorText = offendingSymbol.text
+
+        utils.adicionarErro(f'Linha {offendingSymbol.line}: erro sintatico proximo a {errorText}')
 
         if errorText == '<EOF>':
             errorText = 'EOF'
         
-        utils.adicionarErro(f'Linha {offendingSymbol.line}: erro sintatico proximo a {errorText}')
 
 # Verificando se todos os argumentos necessarios foram passados
 if len(sys.argv) < 3:
@@ -56,40 +47,28 @@ g1.nome = output_file_name
 # Criando um InputStream atraves do arquivo de entrada
 input_stream = FileStream(input_file_name, encoding='utf-8')
 
-# Utilizando o lexer criado com o ANTLR
 lexer = pymidiLexer(input_stream)
+lexer.removeErrorListeners()
 stream = CommonTokenStream(lexer)
 parser = pymidiParser(stream)
-
-#removendo mensagens de erro padrão do ANTLR
-lexer.removeErrorListeners()
 parser.removeErrorListeners()
-
-#adicionando mensagens de erro customizadas
-lexer.addErrorListener(pymidiLexerErrorListener())
-parser.addErrorListener(pymidiParserErrorListener())
-
-#lista de tipos definidos
-tipos_definidos = ['NOTA', 'NUM', 'POSICAO', 'IDENT']
-
-#chamada principal do programa
-lexer = pymidiLexer(input_stream)
-tokens = CommonTokenStream(lexer)
-parser = pymidiParser(tokens)
+parser.addErrorListener(pymidiErrorListener())
 
 # Geração da árvore de análise
 tree = parser.program()
 
-# Criação de um visitor e visita da árvore de análise
-visitor = pymidiVisitor()
-#visitor.visit(tree)
+printer = pymidiListener()
+walker = ParseTreeWalker()
+walker.walk(printer, tree)
 
 semantico = pymidiSemantico()
-semantico.visit(tree)
 
 if len(utils.erros) == 0:
-    g1.Gerar()
-else:
+    semantico.visitProgram(tree)
+    if len(utils.erros) == 0:
+        g1.Gerar()
+        
+if len(utils.erros) > 0:
     #Criando um arquivo de saida
     output_file = open(f"{output_file_name}.txt","w")
     for erro in utils.erros:
