@@ -26,7 +26,7 @@ valor_trecho
     ;
 
 toque
-    : NOTA posicao=NUM duracao=NUM | '-'
+    : NOTA posicao=NUM '-' duracao=NUM | '-'
     ;
 
 loop

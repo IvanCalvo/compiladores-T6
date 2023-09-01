@@ -26,7 +26,6 @@ class pymidiVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by pymidiParser#declaracao_trecho.
     def visitDeclaracao_trecho(self, ctx:pymidiParser.Declaracao_trechoContext):
-        print(ctx.getText())
         return self.visitChildren(ctx)
 
 

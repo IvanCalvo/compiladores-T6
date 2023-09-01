@@ -33,8 +33,8 @@ class pymidiSemantico(pymidiVisitor):
 
                 notas = (declaracao.split('=')[1][1:-1]).split(',')
                 for nota in notas:
-                    duracao = int(nota[-1])
-                    g1.addNota(nome_riff, nota[:-1])
+                    duracao = int(nota.split('-')[1])
+                    g1.addNota(nome_riff, nota.split('-')[0])
                     g1.addDuracao(nome_riff, duracao)
     
         
