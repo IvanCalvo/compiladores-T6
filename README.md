@@ -6,6 +6,12 @@
   João Ricardo Lopes Lovato - RA: 772138  
   Vinícius Borges de Lima - RA: 795316  
 
+# Vídeo explicativo
+
+  No link pode ser assistido o vídeo que demonstra o funcionamento da linguagem:
+  
+  https://www.youtube.com/watch?v=Q2L8zehcemc
+
 # Descrição
 
   O propósito da linguagem e compilador criados é de compilar uma linguagem textual contendo notas musicais e *loops*, construir as estruturas necessárias e por fim gerar um arquivo de áudio final.
