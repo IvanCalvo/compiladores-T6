@@ -1,2 +1,2 @@
-Linha 1: erro sintatico proximo a E
-Linha 3: erro sintatico proximo a riff
+Linha 1: erro proximo a E
+Linha 3: erro proximo a riff

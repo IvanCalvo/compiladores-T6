@@ -26,8 +26,11 @@ from antlr4.error.ErrorListener import ErrorListener
 class pymidiErrorListener(ErrorListener):
     def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
         errorText = offendingSymbol.text
-
-        utils.adicionarErro(f'Linha {offendingSymbol.line}: erro sintatico proximo a {errorText}')
+        
+        if 'mismatched' in msg:
+            utils.adicionarErro(f'Linha {offendingSymbol.line}: \'{errorText}\' não reconhecido')
+        else:
+            utils.adicionarErro(f'Linha {offendingSymbol.line}: erro proximo a {errorText}')
 
         if errorText == '<EOF>':
             errorText = 'EOF'

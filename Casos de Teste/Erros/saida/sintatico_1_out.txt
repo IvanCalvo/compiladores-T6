@@ -1,1 +1,1 @@
-Linha 5: erro sintatico proximo a (
+Linha 5: erro proximo a (
