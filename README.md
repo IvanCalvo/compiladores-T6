@@ -45,3 +45,40 @@
 Após isso, a compilação e execução do código *main.py* é realizada com o comando:
 
     python3 main.py arquivo_de_entrada arquivo_de_saida
+
+# Sobre a linguagem
+
+## Definição 
+A linguagem Pymidi permite ao usuário compor músicas e exportando elas para mid no final de sua execução, a música consiste de `riffs`, que serão então dispostos pelo usuário para então formar a música por completo
+
+## Como usar
+Pymidi é uma linguagem simples, e possui apenas 2 comandos principais
+
+### Riff
+riff [nome_do_riff] = ((NOTA POSICAO,DURACAO)+)
+
+#### Nota
+A nota a ser tocada (as notas podem ir de A a G)
+## Duração 
+A duração da nota, começando em 0. A duração da nota é específicada como um múltiplo de 100 milissegundos, por exemplo, uma duração de 5 implica em 500 millisegundos.
+
+#### Exemplo de riff
+riff refrao = (E4,3,G2,1,A3,2)
+
+### Tocar
+tocar(riffs,quantidade) separado por vírgula
+
+#### Riffs
+Os riffs do tocar precisam ter sido declarados anteriormente através do comando `riff`
+
+#### Quantidade
+Número de vezes que o riff será repetido
+ 
+#### Exemplo do uso de tocar
+tocar(r1,2,r3,1)
+
+
+
+
+
+ 
