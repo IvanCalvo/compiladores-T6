@@ -59,7 +59,8 @@ riff [nome_do_riff] = ((NOTA POSICAO,DURACAO)+)
 
 #### Nota
 A nota a ser tocada (as notas podem ir de A a G)
-## Duração 
+
+#### Duração 
 A duração da nota, começando em 0. A duração da nota é específicada como um múltiplo de 100 milissegundos, por exemplo, uma duração de 5 implica em 500 millisegundos.
 
 #### Exemplo de riff
