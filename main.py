@@ -70,7 +70,7 @@ if len(utils.erros) == 0:
         
 if len(utils.erros) > 0:
     #Criando um arquivo de saida
-    output_file = open(f"{output_file_name}.txt","w")
+    output_file = open(f"{output_file_name}_out.txt","w")
     for erro in utils.erros:
         output_file.write(erro + '\n')
     output_file.close()

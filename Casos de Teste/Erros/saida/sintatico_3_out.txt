@@ -1,0 +1,3 @@
+O riff r1 já existe!
+O riff r0 não foi declarado!
+O riff r3 não foi declarado!
