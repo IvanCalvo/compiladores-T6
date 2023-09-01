@@ -79,7 +79,7 @@ Número de vezes que o riff será repetido
 tocar(r1,2,r3,1)
 
 ### Agradecimentos
-Agradecimento especial ao professor da disciplina Daniel Lucrédio e também à Yan Kohler por ajudar com a leitura de partituras.
+Agradecimento especial ao professor da disciplina Daniel Lucrédio e também à Yan Köhler por ajudar com a leitura de partituras.
 
 
 
