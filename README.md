@@ -55,7 +55,7 @@ A linguagem Pymidi permite ao usuário compor músicas e exportando elas para mi
 Pymidi é uma linguagem simples, e possui apenas 2 comandos principais
 
 ### Riff
-riff [nome_do_riff] = ((NOTA POSICAO,DURACAO)+)
+riff [nome_do_riff] = ((NOTA POSICAO-DURACAO)+)
 
 #### Nota
 A nota a ser tocada (as notas podem ir de A a G)
@@ -64,7 +64,7 @@ A nota a ser tocada (as notas podem ir de A a G)
 A duração da nota, começando em 0. A duração da nota é específicada como um múltiplo de 100 milissegundos, por exemplo, uma duração de 5 implica em 500 millisegundos.
 
 #### Exemplo de riff
-riff refrao = (E4,3,G2,1,A3,2)
+riff refrao = (E4-3,G2-1,A3-2)
 
 ### Tocar
 tocar(riffs,quantidade) separado por vírgula
